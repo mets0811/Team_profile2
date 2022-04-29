@@ -77,8 +77,12 @@ function chooseEmployee(){
         
         }
         else{
-            console.log("quit")
+            var txt=generateHTML(allEmployees)
+            fs.writeFile('./dist/index.html', txt, err => {
+                if(err) throw err
+                console.log("htmlgenerated")
+            })
         }
     })
-}
+}   
 chooseEmployee()
